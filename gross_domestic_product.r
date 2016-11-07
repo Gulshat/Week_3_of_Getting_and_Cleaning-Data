@@ -45,4 +45,20 @@ f <- arrange(matchedData, desc(Rank))[13,3]
 f
 # answer [1] "St. Kitts and Nevis"
 
+# 4 question
+# What is the average GDP ranking for the "High income: OECD" and "High 
+# income: nonOECD" group?
+
+income_OECD <- subset(matchedData, Income.Group %in% "High income: OECD",
+                      select = c(Rank))$Rank
+mean(income_OECD)
+
+# answer: [1] 32.96667
+
+income_nonOECD <- subset(matchedData, Income.Group %in% 
+                           "High income: nonOECD", select = c(Rank))$Rank
+mean(income_nonOECD)
+
+# answer: [1] 91.91304
+
 
