@@ -61,4 +61,22 @@ mean(income_nonOECD)
 
 # answer: [1] 91.91304
 
+# 5 question
+# Cut the GDP ranking into 5 separate quantile groups. Make a table versus 
+# Income.Group. How many countriesare Lower middle income but among the 38
+# nations with highest GDP?
 
+library(Hmisc)
+
+# let's create 5 groups
+matchedData$Rank.Group <- cut2(matchedData$Rank, g = 5)
+
+table(matchedData$Income.Group, matchedData$Rank.Group)
+
+# answer:
+#                      [  1, 39) [ 39, 77) [ 77,115) [115,154) [154,190]
+# High income: nonOECD         4         5         8         5         1
+# High income: OECD           18        10         1         1         0
+# Low income                   0         1         9        16        11
+# Lower middle income          5        13        12         8        16
+# Upper middle income         11         9         8         8         9
