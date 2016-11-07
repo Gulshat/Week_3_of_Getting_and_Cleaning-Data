@@ -31,3 +31,4 @@ agricultureLogical <- with(data1, AGS == 6 & ACR == 3)
 which(agricultureLogical)[1:3]
 
 # answer: [1] 125 238 262
+
